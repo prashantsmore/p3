@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('head')
-    <link href='/css/trivia.css' rel='stylesheet'>
+    <link href='/css/p3.css' rel='stylesheet'>
 @endpush
 
 @section('title')
@@ -31,6 +31,6 @@
     @else
     @endif
 
-    <a href='/bill/create'>Split Another Bill?</a>
+    <a href='/'>Split Another Bill?</a>
 
 @endsection

@@ -1,12 +1,10 @@
 <?php
 
 return [
-    'supportEmail' => 'help@p3.dwa15.online',
+    'supportEmail' => 'prashantsmore@gmail.com',
 
     'nav' => [
-        '/bill' => 'Bills',
-        '/bill/create' => 'Split Calculator',
-        '/books/search' => 'Search',
+        '/' => 'Split Calculator',
         '/about' => 'About',
         '/contact' => 'Contact',
     ],
