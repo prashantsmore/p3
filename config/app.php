@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'supportEmail' => 'help@p3.dwa15.online',
+
+    'nav' => [
+        '/bill' => 'Bills',
+        '/bill/create' => 'Split Calculator',
+        '/books/search' => 'Search',
+        '/about' => 'About',
+        '/contact' => 'Contact',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -13,7 +22,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'BillSplitter',
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +48,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +61,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://p2.dwa15.online'),
 
     /*
     |--------------------------------------------------------------------------
