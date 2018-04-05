@@ -10,6 +10,6 @@ Route::get('/contact', 'PageController@contact');
  * Bill Splitter
  */
 
-Route::get('/', 'BillSplitterController@create');
-Route::post('/bill/calculate', 'BillSplitterController@calculate');
+Route::get('/', 'BillSplitterController@getData');
+Route::get('/bill/calculate', 'BillSplitterController@calculate');
 
