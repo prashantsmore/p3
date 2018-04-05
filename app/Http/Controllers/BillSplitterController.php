@@ -14,24 +14,28 @@ class BillSplitterController extends Controller
     }
 
     /**
-     * GET /books/create
+     * GET /bill/getData
      */
-    public function create()
+    public function getData()
     {
-        return view('bill.create');
+        return view('bill.index');
     }
 
     /**
-     * POST /bill/calculate
-     * @Todo: Add the code to actually add the book to the database
+     * GET /bill/calculate
+     * Splits the Bill
      */
     public function calculate(Request $request)
     {
+        $messages = [
+            'numeric' => 'The :attribute should not contain any characters other than numbers',
+        ];
+
         $this->validate($request, [
-            'split' => 'required|numeric|min:3',
+            'split' => 'required|numeric|min:2',
             'tab' => 'required|numeric|min:3',
             'tip' => 'required|numeric',
-        ]);
+        ], $messages);
 
         $x = $request->input('tab');
         $y = $request->input('split');
@@ -39,14 +43,13 @@ class BillSplitterController extends Controller
         $total = $x + $x * $z / 100;
         $final = $total / $y;
 
-        Log::info('TAB Value ' . $request->input('tab'));
-        Log::info('Individual Value ' . round($final, 2));
-
         $cookie = $request->input('fortuneCookie', null);
         $food = $request->input('food', null);
 
-        Log::info('ccokie Value ' . $request->input('tab') . $cookie);
-        Log::info('food Value ' . $request->input('tab') . $food);
+        Log::info('Tab Value ' . $request->input('tab'));
+        Log::info('Individual Value ' . round($final, 2));
+        Log::info('Ccokie Value ' . $cookie);
+        Log::info('Food Value ' . $food);
 
         $json = file_get_contents(database_path('fortuneQuotes.json'));
         $clues = json_decode($json, true);
@@ -63,15 +66,4 @@ class BillSplitterController extends Controller
 
         ]);
     }
-
-    public function getQuotes()
-    {
-        return 'Display Quotes';
-    }
-
-    public function calculateTipAndDisplayResults()
-    {
-        return 'calculateAnswerAndDisplayResults';
-    }
-
 }
